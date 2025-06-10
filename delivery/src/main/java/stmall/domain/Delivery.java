@@ -45,13 +45,22 @@ public class Delivery {
     public static void startDelivery(OrderPlaced orderPlaced) {
         //implement business logic here:
 
-        /** Example 1:  new item 
+        //Example 1:  new item 
         Delivery delivery = new Delivery();
+        // delivery 프로퍼티 채우기
+        delivery.setOrderId(orderPlaced.getId());
+        delivery.setCustomerId(orderPlaced.getCustomerId());
+        delivery.setItemId(orderPlaced.getItemId());
+        delivery.setQty(orderPlaced.getQty());
+        delivery.setAddress(orderPlaced.getAddress());
+        delivery.setStatus("DELIVERY COMPLETED");
+
         repository().save(delivery);
 
+        // 이부분 PostPersist로 빼도 됨
         DeliveryCompleted deliveryCompleted = new DeliveryCompleted(delivery);
         deliveryCompleted.publishAfterCommit();
-        */
+        
 
         /** Example 2:  finding and process
         
